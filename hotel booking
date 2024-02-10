@@ -1,0 +1,46 @@
+HotelBookingApp/
+├── assets/
+│   └── images/
+├── components/
+│   ├── Button.js
+│   ├── Header.js
+│   └── ...
+├── navigation/
+│   ├── AppNavigator.js
+│   └── ...
+├── screens/
+│   ├── HomeScreen.js
+│   ├── HotelDetailScreen.js
+│   └── ...
+├── redux/
+│   ├── actions/
+│   ├── reducers/
+│   └── store.js
+├── utils/
+├── App.js
+├── package.json
+└── ...
+import React from 'react';
+import { View, Text, Button } from 'native-base';
+import { useSelector } from 'react-redux';
+
+export default function HomeScreen() {
+  const user = useSelector(state => state.user);
+
+  return (
+    <View>
+      <Text>Welcome, {user.name}!</Text>
+      <Button onPress={() => alert('Search hotels')} title="Search Hotels" />
+    </View>
+  );
+}
+import React from 'react';
+import { TouchableOpacity, Text } from 'react-native';
+
+export default function Button({ title, onPress }) {
+  return (
+    <TouchableOpacity onPress={onPress}>
+      <Text>{title}</Text>
+    </TouchableOpacity>
+  );
+}
